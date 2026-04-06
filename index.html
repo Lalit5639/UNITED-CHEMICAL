@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>UNITED CHEMICALS AND INDUSTRIES | Fertilizer Raw Materials</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f8ff;
+      color: #16324f;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* navbar */
+    .navbar {
+      background: #0f3d73;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo h2 {
+      color: #8fd3ff;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #dbeaff;
+      font-weight: 400;
+      font-size: 0.78rem;
+      display: block;
+    }
+    .logo-img { height: 30px; width: auto; }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #eef6ff;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #8fd3ff;
+      transform: translateY(-2px);
+    }
+    /* mobile menu toggle (simple) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #8fd3ff;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0 0.5rem;
+        gap: 1.2rem;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-wrapper {
+        flex-direction: row;
+      }
+    }
+
+    /* buttons & general */
+    .btn-wa {
+      background-color: #1e63b5;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-wa:hover {
+      background-color: #174d8f;
+      transform: scale(1.02);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      color: #12365f;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 3px;
+      background: #3f8cff;
+      margin-top: 8px;
+    }
+    /* home */
+    .hero {
+      background-image:
+        linear-gradient(rgba(7, 33, 66, 0.72), rgba(18, 68, 124, 0.58)),
+        url(https://sageuniversity.edu.in/assets/images/blog/role-of-agro-based-industries-in-sustainable-development.webp);
+      background-position: center;
+      background-size: cover;
+      padding: 4rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .hero-text {
+      flex: 1;
+      max-width: 700px;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      margin: 1.2rem 0;
+      color: #dcecff;
+      max-width: 760px;
+      line-height: 1.6;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+    }
+    .hero-img {
+      flex: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .hero-img i {
+      font-size: 10rem;
+      color: #ffffff;
+      opacity: 0.8;
+    }
+    @media (max-width: 750px) {
+      .hero-text h1 { font-size: 2.2rem; }
+      .hero-img i { font-size: 6rem; }
+    }
+
+    /* about + mission vision cards */
+    .about-section, .mv-section, .category-section, .best-seller, .contact-section {
+      padding: 4rem 0;
+    }
+    .about-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .about-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border: 1px solid #d6e5f7;
+      flex: 1;
+    }
+    .mv-flex {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .mv-item {
+      background: #eaf3ff;
+      border-radius: 28px;
+      padding: 2rem;
+      flex: 1;
+      border-left: 6px solid #3f8cff;
+    }
+    /* categories grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+    }
+    .cat-card {
+      display: block;
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+      border: 1px solid #d8e8fa;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(15, 61, 115, 0.12);
+    }
+    .cat-card i {
+      font-size: 2.6rem;
+      color: #2667c9;
+      margin-bottom: 1rem;
+    }
+    .cat-card h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .cat-card p {
+      font-size: 0.9rem;
+      color: #4b6f96;
+    }
+    .category-actions {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .see-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0.95rem 2rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1d66c2, #11498b);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(10, 46, 92, 0.28);
+    }
+    .see-more-btn:hover {
+      background: linear-gradient(135deg, #236fce, #1456a3);
+      transform: translateY(-2px);
+    }
+    /* best seller products */
+    .seller-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      border: 1px solid #d9e7f7;
+    }
+    .seller-img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 18px;
+      margin-bottom: 1rem;
+      background: #f6fbff;
+      padding: 0.8rem;
+    }
+    .product-card i {
+      font-size: 3rem;
+      color: #2f7de1;
+    }
+    .product-card h4 {
+      margin: 1rem 0 0.4rem;
+      font-weight: 700;
+    }
+    .price {
+      font-weight: 700;
+      color: #1456a3;
+      margin: 0.7rem 0;
+    }
+    .order-sm-btn {
+      background: #1456a3;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .order-sm-btn:hover {
+      background: #0f4788;
+      transform: translateY(-2px);
+    }
+    /* contact */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #eaf3ff;
+      border-radius: 32px;
+      padding: 2rem;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info p {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-icons a {
+      color: #1456a3;
+      font-size: 1.6rem;
+      margin-right: 1rem;
+      transition: 0.2s;
+    }
+    /* footer */
+    .footer {
+      background: #0b2747;
+      color: #dbeaff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    hr {
+      border-color: #2d5f96;
+      margin: 1rem 0;
+    }
+    /* order panel floating? simple inline wa */
+    .order-wa-section {
+      background: #e4f0ff;
+      border-radius: 48px;
+      text-align: center;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .big-wa {
+      background: #1456a3;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+    }
+    button, a { transition: all 0.2s; }
+    img { max-width: 100%; }
+    .fa-whatsapp { margin-right: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- 1. NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo">
+      <img src="Uci logo.png" alt="UCI Logo" class="logo-img">
+      <h2>UNITED CHEMICALS AND INDUSTRIES <span>YOUR TRUSTED BUSINESS PARTNER</span></h2>
+    </div>
+    <div class="menu-toggle" id="mobileMenu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#mission-vision">Mission & Vision</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#best-seller">Best Seller</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#order-whatsapp" class="btn-wa" style="background:#1e63b5; color:white; padding:0.4rem 1.2rem;"><i class="fab fa-whatsapp"></i> Order</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- 2. HOME PAGE -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Premium Fertilizer Raw Materials</h1>
+        <p>Empowering agriculture with top-grade Organic Fertilizers, Micronutrients, Water Soluble blends, and Primary Fertilizers. Sourced sustainably, delivered reliably.</p>
+        <div class="category-actions">
+        <a href="#best-seller" class="see-more-btn">See More <i class="fas fa-arrow-right" color=white style="color: white;"></i></a>
+      </div>
+      </div>
+      <div class="hero-img">
+        <i class="fas fa-flask"></i>
+        <i class="fas fa-cubes" style="font-size:5.8rem;"></i>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 3. ABOUT PAGE -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <i class="fas fa-leaf" style="font-size:2rem; color:#2667c9;"></i>
+          <h3 style="margin:1rem 0 0.5rem;">Who We Are</h3>
+          <p>UNITED CHEMICALS AND INDUSTRIES is a trusted supplier of high-performance fertilizer raw materials. With deep roots in agricultural science, we deliver pure, lab-tested inputs for sustainable farming. Our network ensures consistent supply for large-scale and niche growers.</p>
+        </div>
+        <div class="about-card">
+          <i class="fas fa-chart-line" style="font-size:2rem; color:#2667c9;"></i>
+          <h3 style="margin:1rem 0 0.5rem;">Why Choose Us</h3>
+          <p>✔ 100% authentic raw materials<br>✔ Competitive bulk pricing<br>✔ Customized blends available<br>✔ Fast pan-India logistics & export support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MISSION & VISION -->
+  <section id="mission-vision" class="mv-section">
+    <div class="container">
+      <h2 class="section-title">Mission & Vision</h2>
+      <div class="mv-flex">
+        <div class="mv-item">
+          <i class="fas fa-bullseye" style="font-size: 2rem; color:#2f7de1;"></i>
+          <h3 style="margin: 0.8rem 0;">Our Mission</h3>
+          <p>To provide superior fertilizer raw materials that enhance soil fertility and crop yield while championing eco-friendly agricultural practices. We aim to empower farmers and agribusinesses with transparent, cost-effective sourcing.</p>
+        </div>
+        <div class="mv-item">
+          <i class="fas fa-eye" style="font-size: 2rem; color:#2f7de1;"></i>
+          <h3 style="margin: 0.8rem 0;">Our Vision</h3>
+          <p>To become a global benchmark in sustainable agricultural inputs — bridging the gap between raw material excellence and farmer prosperity, contributing to a greener, food-secure future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OUR CATEGORY (Organic, Micro-nutrients, Water Soluble, Primary Fertilizers) -->
+  <section id="categories" class="category-section">
+    <div class="container">
+      <h2 class="section-title">Our Product Categories</h2>
+      <div class="category-grid">
+        <a href="row.html" class="cat-card">
+          <i class="fas fa-leaf"></i>
+          <h3>🏭 Row Material Fertilizers</h3>
+          <p>Urea, DAP, MOP, SSP, Ammonium Sulphate – essential NPK raw materials for baseline crop nutrition.</p>
+        </a>
+        <a href="organic.html" class="cat-card">
+          <i class="fas fa-apple-alt"></i>
+          <h3>🌿 Organic Fertilizers</h3>
+          <p>Neem cake, bone meal, vermicompost, seaweed extract — 100% organic raw material for healthy soil.</p>
+        </a>
+        <a href="micro.html" class="cat-card">
+          <i class="fas fa-microscope"></i>
+          <h3>🧪 Micro-Nutrients</h3>
+          <p>Zinc, Boron, Iron, Manganese, Copper – chelated & sulphate forms to boost plant micro-deficiency correction.</p>
+        </a>
+        <a href="water.html" class="cat-card">
+          <i class="fas fa-tint"></i>
+          <h3>💧 Water Soluble Fertilizers</h3>
+          <p>MKP, 19:19:19, 13:40:13, Calcium Nitrate, SOP – high purity, fast absorption for fertigation.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. OUR BEST SELLER (dynamic + interactive with pre-filled WhatsApp) -->
+  <section id="best-seller" class="best-seller">
+    <div class="container">
+      <h2 class="section-title">🌟 Our Best Sellers</h2>
+      <div class="seller-grid" id="sellerGrid">
+        products will be injected via JS, but static fallback works
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ORDER WITH WHATSAPP (dedicated block) + inline order buttons -->
+  <section id="order-whatsapp" class="order-wa-section">
+    <div class="container">
+      <h2 style="font-size: 1.9rem;">📦 Order Directly via WhatsApp</h2>
+      <p style="margin: 0.5rem 0 1.5rem;">Share your requirements — quantity, category, delivery location. Our team replies within minutes.</p>
+      <a href="https://wa.me/919876543210?text=Hello%20UNITED%20CHEMICALS%20AND%20INDUSTRIES%2C%20I%20want%20to%20order%20fertilizer%20raw%20materials.%20Please%20share%20catalogue%20and%20prices." target="_blank" class="btn-wa big-wa" style="background:#1456a3; padding: 0.9rem 2rem; font-size: 1.2rem;"><i class="fab fa-whatsapp fa-lg"></i> Chat & Order Now →</a>
+      <p style="margin-top: 1rem; font-size: 0.85rem;">📞 +91 98765 43210 | For bulk inquiries, click the button above</p>
+    </div>
+  </section>
+
+  <!-- 8. CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-flex">
+        <div class="contact-info">
+          <h3>Let's talk business</h3>
+          <p><i class="fas fa-map-marker-alt"></i> UNITED CHEMICALS AND INDUSTRIES, A-54, VEDVYAS PURI, NEAR MEENAR RESTOURENT NH-58 SUBHARTI UNIVERSITY MEERUT UTTAR PRADESH 250002</p>
+          <p><i class="fas fa-phone-alt"></i> +91 98765 43210 / +91 1123456789</p>
+          <p><i class="fas fa-envelope"></i> sales@agriroots.com | procurement@agriroots.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/919876543210" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.743123456789!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2f5b1c1b3d5%3A0x9a0f3f2e1a7b9c!2sNew%20Delhi!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="200" style="border:0; border-radius: 18px;" allowfullscreen="" loading="lazy"></iframe>
+          <p style="margin-top: 12px; font-size: 0.8rem;">📍A-54, VEDVYAS PURI, NEAR MEENAR RESTOURENT NH-58 SUBHARTI UNIVERSITY MEERUT UTTAR PRADESH 250002</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 9. FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;">
+      <div><strong>UNITED CHEMICALS AND INDUSTRIES</strong><br>Premium Fertilizer Raw Materials</div>
+      <div><i class="fas fa-truck"></i> Pan-India Supply | Export Ready</div>
+      <div><i class="fab fa-whatsapp"></i> 24/7 Order Support</div>
+    </div>
+    <hr>
+    <p>© 2025 UNITED CHEMICALS AND INDUSTRIES. All rights reserved. | <a href="#" style="color:#8fd3ff;">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+  // mobile toggle
+  const menuToggle = document.getElementById('mobileMenu');
+  const navLinks = document.getElementById('navLinks');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+
+  // Best Seller Data (products with category images and links)
+  const bestSellers = [
+    { name: "Zinc EDTA", price: "₹185/kg", type: "Micro-nutrients", img: "water/zin edta.png", link: "micro.html", waMsg: "I'm interested in Zinc EDTA 12% – best seller." },
+    { name: "Water Soluble 19:19:19", price: "₹92/kg", type: "Water Soluble", img: "water/19 19 19.png", link: "water.html", waMsg: "Need best seller Water Soluble 19:19:19 – 25kg bag." },
+    { name: "Seaweed Extract", price: "₹380/ltr", type: "Organic Fertilizers", img: "Organic/Seaweed.png", link: "organic.html", waMsg: "Quote for Seaweed Extract organic fertilizer." },
+    { name: "Calcium Nitrate", price: "₹125/kg", type: "Row Material Fertilizers", img: "Row Material/Calsium.png", link: "row.html", waMsg: "Price for Calcium Nitrate row material fertilizer." }
+  ];
+
+  function renderBestSellers() {
+    const container = document.getElementById('sellerGrid');
+    if(!container) return;
+    container.innerHTML = '';
+    bestSellers.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" class="seller-img">
+        <h4>${item.name}</h4>
+        <p style="font-size:0.85rem; color:#58779d;">${item.type}</p>
+        <div class="price">${item.price}</div>
+        <a href="${item.link}" class="order-sm-btn"><i class="fas fa-arrow-right"></i> See More</a>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // also handle any other "Order with WhatsApp" buttons (like in categories maybe but we add one global)
+  function attachGlobalWAButtons() {
+    // all elements with .btn-wa that are not already having listener, plus generic order triggers
+    const waButtons = document.querySelectorAll('.btn-wa, .order-sm-btn');
+    // avoid double listeners: we'll replace but best to do after render. for dynamic we use above.
+    // for static .btn-wa that might not have WA handler? but main ones have direct links.
+    // also ensure any existing additional order click behavior from best seller already set.
+  }
+
+  // also we can make order-whatsapp section consistent
+  renderBestSellers();
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const targetElem = document.querySelector(targetId);
+      if(targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth' });
+        // close mobile menu after click
+        if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
+      }
+    });
+  });
+
+  // Additional: Contact section phone/wa quick order floating? done.
+  // ensure responsive icon etc.
+
+  // WhatsApp quick order for any product best seller re-trigger not needed. all good.
+  // also add product support for all categories from our category and best seller
+  // Bonus: for Home page hero button order.
+  const heroBtn = document.querySelector('.hero-text .btn-wa');
+  if(heroBtn && heroBtn.getAttribute('href') === "#order-whatsapp") {
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#order-whatsapp').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  // explicit for "Order with WhatsApp" in navbar item to open modal? we redirect to order section
+  const navOrderBtn = document.querySelector('.nav-links .btn-wa');
+  if(navOrderBtn) {
+    navOrderBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#order-whatsapp').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+</script>
+</body>
+</html>
